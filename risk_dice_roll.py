@@ -23,11 +23,17 @@ sorted_offense = sorted(offense_rolls, reverse=True)
 print(f"Defense Rolls: {sorted_defense}")
 print(f"Offense Rolls: {sorted_offense}")
 
-if sorted_defense[0] >= sorted_offense[0] and sorted_defense[1] >= sorted_offense[1]:
-    print("Defense won both rolls")
-elif sorted_defense[0] >= sorted_offense[0] and sorted_defense[1] < sorted_offense[1]:
-    print("Defense won 1 and attack won 1")
-#elif sorted_defense[0] < sorted_offense[0] and sorted_defense[1] < sorted_offense[1]:
-#    print("Offense won both rolls")
+if len(sorted_defense) == 2:
+    if sorted_defense[0] >= sorted_offense[0] and sorted_defense[-1] >= sorted_offense[1]:
+        print("Defense won both rolls")
+    elif sorted_defense[0] >= sorted_offense[0] and sorted_defense[-1] < sorted_offense[1]:
+        print("Defense won 1 and attack won 1")
+    #elif sorted_defense[0] < sorted_offense[0] and sorted_defense[1] < sorted_offense[1]:
+    #    print("Offense won both rolls")
+    else:
+        print("Offense won both rolls")
 else:
-    print("Offense won both rolls")
+    if sorted_defense[0] >= sorted_offense[0]:
+        print("Defense won the roll.")
+    else:
+        print("Offense won the roll")
